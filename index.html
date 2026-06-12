@@ -4,9 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OffiMemo : le bon conseil, à chaque scan</title>
-<meta name="robots" content="noindex, nofollow">
 <meta name="description" content="OffiMemo affiche au comptoir, par-dessus votre LGO, le rappel de posologie, les modalités de prise et le conseil associé du médicament scanné.">
+<meta name="theme-color" content="#0F2C1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%2392C0A6'/%3E%3Crect x='19' y='9' width='10' height='30' rx='5' fill='%230F2C1F'/%3E%3Crect x='9' y='19' width='30' height='10' rx='5' fill='%230F2C1F'/%3E%3C/svg%3E">
+<meta property="og:title" content="OffiMemo : le bon conseil, à chaque scan">
+<meta property="og:description" content="Le rappel de posologie et le conseil associé du médicament scanné, affichés par-dessus votre LGO. Rédigé et validé à la main par notre équipe.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://offimemo.fr">
+<meta property="og:image" content="https://offimemo.fr/og.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -124,7 +133,6 @@ footer a{color:var(--sauge);text-decoration:none}
 nav{transition:background .35s ease, box-shadow .35s ease, padding .35s ease}
 nav.fix{position:fixed;background:rgba(15,44,31,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:12px 0;box-shadow:0 6px 24px -12px rgba(0,0,0,.5)}
 .hero .accent{background:linear-gradient(100deg,var(--sauge),#CFE7D6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero:after{content:"";position:absolute;inset:auto 0 0 0;height:110px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.16));pointer-events:none}
 .step,.card,.pilier{transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, border-color .35s ease}
 .step:hover,.card:hover{transform:translateY(-5px);box-shadow:0 22px 44px -20px rgba(22,58,41,.4)}
 .card:hover{border-top-color:var(--foret)}
@@ -138,8 +146,6 @@ nav.fix{position:fixed;background:rgba(15,44,31,.78);backdrop-filter:blur(10px);
 .hero .wrap{position:relative}
 .hero:before{content:"";position:absolute;top:-18%;right:-8%;width:58%;height:75%;background:radial-gradient(circle,rgba(146,192,166,.2),transparent 65%);animation:breathe 9s ease-in-out infinite alternate;pointer-events:none}
 @keyframes breathe{to{transform:scale(1.15) translateY(26px);opacity:.65}}
-.eyebrow:before{content:"";display:inline-block;width:22px;height:2px;background:var(--sauge);border-radius:2px;margin-right:10px;vertical-align:middle}
-.light .eyebrow:before,.beige .eyebrow:before{background:var(--foret)}
 #prog{position:fixed;top:0;left:0;height:3px;width:0;background:var(--sauge);z-index:99;border-radius:0 2px 2px 0}
 @media (prefers-reduced-motion:reduce){.hero:before{animation:none}}
 
@@ -149,15 +155,14 @@ nav.fix{position:fixed;background:rgba(15,44,31,.78);backdrop-filter:blur(10px);
 .pill.classe{background:#F7DAD6;color:#B3372C}
 .n-timing{background:#EAF1FA;color:#33527A}
 .n-timing b{color:#1D3557}
-.rv{transition:opacity .85s ease, transform .85s cubic-bezier(.22,1,.36,1), filter .85s ease;transition-delay:var(--d,0s);filter:blur(8px)}
-.rv.vis{filter:blur(0)}
 h1,h2{letter-spacing:-.022em}
 @media(min-width:761px){section{padding:112px 0}.hero{padding:152px 0 104px}}
 @media (prefers-reduced-motion:reduce){.rv{filter:none}}
 
 /* echelle ecran reelle */
-.lgo{min-height:540px;transform:perspective(1400px) rotateX(1.4deg);transition:transform .7s ease}
-.demo:hover .lgo{transform:perspective(1400px) rotateX(0)}
+.lgo{min-height:580px;box-shadow:0 0 0 1px rgba(255,255,255,.10),0 34px 80px -30px rgba(0,0,0,.65),0 80px 140px -70px rgba(146,192,166,.3);transition:box-shadow .6s ease,translate .6s ease}
+.lgo:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.16),transparent 40%)}
+.demo:hover .lgo{translate:0 -5px;box-shadow:0 0 0 1px rgba(255,255,255,.16),0 48px 100px -34px rgba(0,0,0,.7),0 90px 160px -70px rgba(146,192,166,.42)}
 .skel{display:grid;grid-template-columns:160px 1fr;gap:28px;padding:28px}
 .s-side i{height:11px;margin-bottom:16px;width:100%}
 .s-side i:first-child{width:70%}
@@ -167,8 +172,8 @@ h1,h2{letter-spacing:-.022em}
 .n-title{font-size:12px;margin-bottom:8px}
 .n-badge{width:16px;height:16px}
 .pill{font-size:10px;padding:2px 8px}
-.n-row{margin-bottom:7px}
-.n-timing{padding:8px 10px;margin-top:9px}
+.n-row{margin-bottom:6px}
+.n-timing{padding:8px 10px;margin-top:8px}
 .n-timing svg{width:13px;height:13px}
 /* grain premium + micro-interactions */
 body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:98;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
@@ -178,23 +183,80 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:98;opa
 footer a{border-bottom:1px solid transparent;transition:border-color .3s}
 footer a:hover{border-color:var(--sauge)}
 @media (max-width:760px){.lgo{min-height:320px;transform:none}.skel{grid-template-columns:1fr;gap:0}.s-side{display:none}}
-.notif{width:min(470px,calc(100% - 44px));line-height:1.42}
+.notif{width:min(520px,calc(100% - 44px));line-height:1.42;z-index:1;box-shadow:0 24px 60px -22px rgba(15,44,31,.5),0 0 0 1px rgba(15,44,31,.06)}
 .btn+.btn{margin-left:14px}
-@media(max-width:760px){.btn{display:block;text-align:center}.btn+.btn{margin:12px 0 0}}
+/* passe design v3 : air, echelle, scene produit */
+.hero{text-align:center}
+.hero p{margin:28px auto 40px}
+.hero:before{right:21%;left:21%;width:auto}
+h1{font-size:clamp(42px,7vw,82px);letter-spacing:-.03em;line-height:1.01}
+h2{font-size:clamp(30px,4.3vw,49px);letter-spacing:-.026em}
+.eyebrow{letter-spacing:.26em}
+@media(min-width:761px){
+  section{padding:128px 0}
+  .hero{padding:164px 0 118px}
+  h2{margin-bottom:30px}
+  .steps,.cards,.piliers{margin-top:26px}
+  .demo{margin-top:80px}
+  .exergue{margin-top:74px}
+}
+.hero a.btn:first-of-type{background:transparent;color:var(--creme);box-shadow:inset 0 0 0 1.5px rgba(246,237,214,.45)}
+.hero a.btn:first-of-type:hover{box-shadow:inset 0 0 0 1.5px rgba(246,237,214,.9),0 14px 30px -14px rgba(0,0,0,.45)}
+.lgo{border-radius:18px}
+footer{padding:56px 0 64px}
+@media(max-width:760px){
+  .hero:before{display:none}
+  .btn{display:block;width:min(320px,100%);margin-left:auto;margin-right:auto}
+  .btn+.btn{margin:12px auto 0}
+  .notif{right:auto;bottom:auto;width:calc(100% - 24px);margin:-44px auto 12px}
+}
+/* QA pre-publication */
+body{overflow-x:hidden}
+.notif{text-align:left}
+footer{background:var(--profond)}
+[id]{scroll-margin-top:92px}
+.exergue{font-size:clamp(21px,3vw,29px)}
+.nav-in{display:flex;align-items:center;justify-content:space-between}
+.nav-cta{font-size:14px;font-weight:600;color:var(--creme);text-decoration:none;padding:9px 20px;border-radius:999px;box-shadow:inset 0 0 0 1.5px rgba(246,237,214,.4);transition:box-shadow .3s ease,background .3s ease,color .3s ease}
+.nav-cta:hover{background:var(--creme);color:var(--encre);box-shadow:none}
+@media(max-width:760px){.nav-cta{display:none}}
+/* passe design v4 : panneaux flottants */
+.light,.beige,.probleme{margin:22px clamp(10px,2vw,28px);border-radius:clamp(22px,3vw,42px)}
+.hero p{font-size:18px;max-width:56ch}
+.btn:focus-visible,.nav-cta:focus-visible,a:focus-visible{outline:2px solid var(--sauge);outline-offset:3px}
+::-webkit-scrollbar{width:11px}
+::-webkit-scrollbar-thumb{background:rgba(146,192,166,.35);border-radius:99px;border:3px solid var(--profond)}
+::-webkit-scrollbar-track{background:var(--profond)}
+.f-lock{font-size:15px;margin-bottom:18px;color:var(--creme);opacity:.92}
+.f-lock .mark{width:24px;height:24px;border-radius:7px}
+.f-lock .mark svg{width:13px;height:13px}
+/* passe finale v5 : aurore, finitions */
+html{color-scheme:dark}
+.hero:before{content:"";position:absolute;left:10%;right:auto;top:-14%;width:46%;height:62%;background:radial-gradient(closest-side,rgba(146,192,166,.17),transparent 70%);filter:blur(34px);animation:drift1 16s ease-in-out infinite alternate;pointer-events:none}
+.hero .wrap:before{content:"";position:absolute;right:0;top:-6%;width:42%;height:52%;background:radial-gradient(closest-side,rgba(64,140,104,.22),transparent 70%);filter:blur(40px);animation:drift2 21s ease-in-out infinite alternate;pointer-events:none}
+@keyframes drift1{to{transform:translate(9%,12%) scale(1.12)}}
+@keyframes drift2{to{transform:translate(-10%,16%) scale(1.18)}}
+.card{border-top:none;position:relative}
+.card:before{content:"";position:absolute;top:0;left:20px;right:20px;height:3px;border-radius:99px;background:linear-gradient(90deg,var(--sauge),rgba(146,192,166,0))}
+.card:hover:before{background:linear-gradient(90deg,var(--foret),rgba(32,80,58,0))}
+.light,.beige{box-shadow:inset 0 0 0 1px rgba(22,58,41,.05)}
+.equipe .btn{margin-top:14px}
+@media(max-width:760px){.hero .wrap:before{display:none}}
+@media (prefers-reduced-motion:reduce){.hero:before,.hero .wrap:before{animation:none}}
 </style>
 </head>
 <body>
 
-<nav><div class="wrap"><div class="lockup">
+<nav><div class="wrap nav-in"><div class="lockup">
   <span class="mark"><svg viewBox="0 0 48 48"><rect x="17" y="6" width="14" height="36" rx="7" fill="#0F2C1F"/><rect x="6" y="17" width="36" height="14" rx="7" fill="#0F2C1F"/></svg></span>
   OffiMemo
-</div></div></nav>
+</div><a class="nav-cta" href="mailto:anwar.offimemo@gmail.com?subject=OffiMemo%20%3A%20R%C3%A9server%20une%20d%C3%A9mo">Réserver une démo</a></div></nav>
 
 <header class="hero">
   <div class="wrap">
     <div class="eyebrow rv vis" style="--d:.05s">Le conseil au comptoir</div>
     <h1 class="rv vis" style="--d:.12s">À chaque scan, <span class="accent">le bon conseil.</span></h1>
-    <p class="rv vis" style="--d:.22s">OffiMemo s'affiche par-dessus votre LGO au moment où vous scannez une boîte : rappel de posologie, conseil essentiel, produits complémentaires à proposer. Le patient repart mieux accompagné, l'équipe s'appuie sur les mêmes repères, l'officine booste ses ventes conseil — sans ralentir la délivrance.</p>
+    <p class="rv vis" style="--d:.22s">OffiMemo s'affiche par-dessus votre LGO au moment où vous scannez une boîte : rappel de posologie, conseil essentiel, produits complémentaires à proposer. Le patient repart mieux accompagné, l'équipe s'appuie sur les mêmes repères, l'officine booste ses ventes conseil, sans ralentir la délivrance.</p>
     <div class="rv vis" style="--d:.32s">
       <a class="btn" href="#contact">Échangeons</a><a class="btn" href="mailto:anwar.offimemo@gmail.com?subject=OffiMemo%20%3A%20R%C3%A9server%20une%20d%C3%A9mo">Réserver une démo</a>
     </div>
@@ -208,14 +270,14 @@ footer a:hover{border-color:var(--sauge)}
           <div class="n-head"><span>SCAN · <b>Amoxicilline (Clamoxyl)</b></span><span>×</span></div>
           <div class="n-body">
             <div class="n-title">
-              <span class="n-badge"><svg viewBox="0 0 48 48"><rect x="17" y="6" width="14" height="36" rx="7" fill="#F6EDD6"/><rect x="6" y="17" width="36" height="14" rx="7" fill="#F6EDD6"/></svg></span>
+              <span class="n-badge"><svg viewBox="0 0 48 48"><rect x="17" y="6" width="14" height="36" rx="7" fill="#0F2C1F"/><rect x="6" y="17" width="36" height="14" rx="7" fill="#0F2C1F"/></svg></span>
               Conseil : Ultra-Levure 200mg&nbsp;|&nbsp;Lactibiane Référence&nbsp;|&nbsp;Bion 3 Adultes
             </div>
-            <div class="n-row"><span class="pill classe">Antibiotique</span><span>Diarrhée par destruction de la flore intestinale.</span></div>
-            <div class="n-row"><span class="pill produit">Ultra-Levure</span><span>Probiotique : maintient l'équilibre de la flore intestinale.</span></div>
+            <div class="n-row"><span class="pill classe">Antibiotique</span><span>Peut entraîner une diarrhée en déséquilibrant la flore intestinale.</span></div>
+            <div class="n-row"><span class="pill produit">Ultra-Levure</span><span>Probiotique qui restaure et protège l'équilibre du microbiote.</span></div>
             <div class="n-timing">
               <svg viewBox="0 0 24 24" fill="none" stroke="#3E6FA8" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>
-              <span><b>Respecter la durée et des horaires réguliers</b> (efficacité). Probiotique <b>dès J1, à 2h d'écart</b> de l'antibiotique, à poursuivre <b>5-7j après l'arrêt</b>.</span>
+              <span>Respecter la durée et des horaires réguliers (efficacité). <b>À débuter dès J1, à 2h d'écart des autres prises, à poursuivre 5 à 7 jours après l'arrêt.</b></span>
             </div>
           </div>
         </div>
@@ -230,7 +292,7 @@ footer a:hover{border-color:var(--sauge)}
     <h2 class="rv">Un scan, une notification, une décision.</h2>
     <div class="steps">
       <div class="step rv" style="--d:.05s"><div class="num">1</div><h3>Vous scannez, comme d'habitude.</h3><p>OffiMemo fonctionne par-dessus votre LGO, quel qu'il soit. Aucune saisie de votre part.</p></div>
-      <div class="step rv" style="--d:.15s"><div class="num">2</div><h3>La notification s'affiche.</h3><p>Posologie, conseil clé, produits associés pertinents. Lisible en cinq secondes.</p></div>
+      <div class="step rv" style="--d:.15s"><div class="num">2</div><h3>La notification s'affiche.</h3><p>Posologie, conseil clé, produits associés pertinents, tirés de notre base de fiches rédigées et validées à la main par notre équipe, à partir des sources officielles. Lisible en cinq secondes.</p></div>
       <div class="step rv" style="--d:.25s"><div class="num">3</div><h3>Vous décidez.</h3><p>Vous adaptez au patient, vous proposez ou non. Rien n'est imposé : OffiMemo rappelle.</p></div>
     </div>
   </div>
@@ -242,7 +304,7 @@ footer a:hover{border-color:var(--sauge)}
     <h2 class="rv">Le conseil associé passe trop souvent au second plan.</h2>
     <div class="cols">
       <p class="rv" style="--d:.08s">Ce n'est pas la compétence qui manque, c'est le temps. Les recommandations évoluent, les sources se multiplient, et l'équipe se relaie au comptoir : titulaire, adjoints, préparateurs, étudiants. Résultat : la même boîte ne repart pas toujours avec le même conseil.</p>
-      <p class="rv" style="--d:.18s">Et chaque conseil oublié coûte deux fois : un patient moins bien accompagné, et une vente associée qui ne se fait pas.</p>
+      <p class="rv" style="--d:.18s">À chaque conseil oublié, l'impact est double : un patient moins bien accompagné et une possible vente conseil ratée.</p>
     </div>
   </div>
 </section>
@@ -265,10 +327,10 @@ footer a:hover{border-color:var(--sauge)}
     <div class="eyebrow rv">Pourquoi ça marche</div>
     <h2 class="rv">Quatre engagements.</h2>
     <div class="piliers">
-      <div class="pilier rv" style="--d:.05s"><h3>Homogène</h3><p>Le même conseil, quel que soit le membre de l'équipe au comptoir.</p></div>
-      <div class="pilier rv" style="--d:.12s"><h3>À jour</h3><p>Base actualisée en continu à partir des sources officielles. Rien à entretenir de votre côté.</p></div>
+      <div class="pilier rv" style="--d:.05s"><h3>Régularité et homogénéité</h3><p>Le même conseil, quel que soit le membre de l'équipe au comptoir.</p></div>
+      <div class="pilier rv" style="--d:.12s"><h3>Toujours à jour</h3><p>Base actualisée régulièrement à partir des sources officielles. Rien à entretenir de votre côté.</p></div>
       <div class="pilier rv" style="--d:.19s"><h3>Sous votre contrôle</h3><p>Vous pouvez activer ou désactiver chaque conseil depuis le tableau de bord, selon la politique de votre officine.</p></div>
-      <div class="pilier rv" style="--d:.26s"><h3>Mesurable</h3><p>Conseils affichés, ventes associées : l'impact se lit en un coup d'œil.</p></div>
+      <div class="pilier rv" style="--d:.26s"><h3>Quantifiable</h3><p>Conseils affichés et ventes associées : l'impact est visible grâce à un tableau de bord simplifié.</p></div>
     </div>
   </div>
 </section>
@@ -276,14 +338,16 @@ footer a:hover{border-color:var(--sauge)}
 <section class="equipe">
   <div class="wrap">
     <div class="eyebrow rv">Qui est derrière OffiMemo</div>
-    <h2 class="rv">Nous sommes trois.</h2>
-    <p class="rv" style="--d:.08s">Anwar, FFI en pharmacologie-toxicologie, bientôt interne en pharmacie hospitalière à Toulouse, Paul, jeune pharmacien d'officine, et Ilyes, développeur informatique. Nous construisons OffiMemo depuis notre deuxième année de pharmacie ; il entre aujourd'hui dans sa dernière ligne droite.</p>
+    <h2 class="rv">Nous sommes quatre.</h2>
+    <p class="rv" style="--d:.08s">Anwar, FFI en pharmacologie-toxicologie, bientôt interne en pharmacie hospitalière à Toulouse, Thomas, jeune pharmacien d'officine, Magda, interne en biologie médicale, et Ilyes, développeur informatique. Nous construisons OffiMemo depuis notre deuxième année de pharmacie ; il entre aujourd'hui dans sa dernière ligne droite.</p>
     <p class="rv" style="--d:.16s">Pour les derniers réglages, nous avons besoin de votre expertise et de votre regard de terrain.</p>
+    <a class="btn rv" style="--d:.24s" href="mailto:anwar.offimemo@gmail.com?subject=OffiMemo%20%3A%20%C3%89changeons">Échangeons</a>
   </div>
 </section>
 
 <footer id="contact">
   <div class="wrap">
+    <div class="lockup f-lock"><span class="mark"><svg viewBox="0 0 48 48"><rect x="17" y="6" width="14" height="36" rx="7" fill="#0F2C1F"/><rect x="6" y="17" width="36" height="14" rx="7" fill="#0F2C1F"/></svg></span>OffiMemo</div>
     <p>OffiMemo est un projet en cours de développement. Les rappels de conseil sont génériques. OffiMemo n'est pas un dispositif médical, ne se substitue pas au jugement du pharmacien et ne traite aucune donnée de santé.</p>
     <p>Joignable à tout moment : <a href="mailto:anwar.offimemo@gmail.com">anwar.offimemo@gmail.com</a> · <a href="tel:+33755722660">07 55 72 26 60</a></p>
   </div>
@@ -297,16 +361,17 @@ const nv=document.querySelector('nav');
 addEventListener('scroll',()=>nv.classList.toggle('fix',scrollY>60),{passive:true});
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
  const notif=document.querySelector('.notif'),beam=document.querySelector('.beam');
- const badge='<span class="n-badge"><svg viewBox="0 0 48 48"><rect x="17" y="6" width="14" height="36" rx="7" fill="#F6EDD6"/><rect x="6" y="17" width="36" height="14" rx="7" fill="#F6EDD6"/></svg></span>';
+ const badge='<span class="n-badge"><svg viewBox="0 0 48 48"><rect x="17" y="6" width="14" height="36" rx="7" fill="#0F2C1F"/><rect x="6" y="17" width="36" height="14" rx="7" fill="#0F2C1F"/></svg></span>';
  const clock='<svg viewBox="0 0 24 24" fill="none" stroke="#3E6FA8" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>';
  const cases=[notif.innerHTML,
- '<div class="n-head"><span>SCAN · <b>Cholécalciférol / Vitamine D (Uvedose, ZymaD)</b></span><span>×</span></div><div class="n-body"><div class="n-title">'+badge+'Rappel de conseil patient</div><div class="n-row"><span class="pill produit">Vitamine D</span><span>Liposoluble : absorption optimisée par un repas gras.</span></div><div class="n-timing">'+clock+'<span><b>Ampoule mensuelle ou trimestrielle</b> selon prescription, <b>avec le repas le plus gras</b> de la journée. Compléter par alimentation (poissons gras, jaune d\'œuf) et soleil modéré (15-20 min/j).</span></div></div>'];
+ '<div class="n-head"><span>SCAN · <b>Bisoprolol (Cardensiel, Détensiel)</b></span><span>×</span></div><div class="n-body"><div class="n-title">'+badge+'Rappel de conseil patient</div><div class="n-row"><span class="pill classe">Bêta-bloquant</span><span>Bradycardie et fatigue en début de traitement ; effet rebond cardiovasculaire si l\'arrêt est trop rapide.</span></div><div class="n-timing">'+clock+'<span><b>1 prise/jour le matin.</b> <b>Décroissance progressive obligatoire</b> (jamais d\'interruption brutale). Chez le diabétique : <b>peut masquer les signes d\'hypoglycémie</b>.</span></div></div>',
+ '<div class="n-head"><span>SCAN · <b>Paracétamol + opium/caféine (Lamaline, Izalgi)</b></span><span>×</span></div><div class="n-body"><div class="n-title">'+badge+'Conseil : Macrogol (Forlax, Movicol)</div><div class="n-row"><span class="pill classe">Antalgique opioïde</span><span>Associe opioïde, paracétamol et caféine : constipation, somnolence, dépendance, surdosage en paracétamol possible.</span></div><div class="n-row"><span class="pill produit">Macrogol</span><span>Laxatif osmotique qui rétablit un transit régulier. Lactulose (Duphalac) au-delà de 3 jours.</span></div><div class="n-timing">'+clock+'<span><b>Max 3g de paracétamol/24h</b> toutes sources confondues (sirops, Doliprane). Durée la plus courte. <b>Pas d\'alcool</b>, prudence à la conduite.</span></div></div>'];
  let i=0;
  setTimeout(()=>notif.classList.add('ready'),2600);
  setInterval(()=>{notif.classList.add('hide');
   setTimeout(()=>{beam.style.animation='none';void beam.offsetWidth;beam.style.animation='beam 1.1s ease-in forwards';},350);
   setTimeout(()=>{i=(i+1)%cases.length;notif.innerHTML=cases[i];notif.classList.remove('hide');},1500);
- },9000);
+ },7500);
 }
 
 const pg=document.createElement('div');pg.id='prog';document.body.appendChild(pg);
