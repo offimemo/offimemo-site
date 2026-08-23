@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>OffiMemo</title>
+    <script>
+      // Technique standard "spa-github-pages" (rafgraph) : GitHub Pages n'a pas
+      // de réécriture côté serveur, donc toute navigation directe vers une route
+      // React Router (ex. /connexion) tombe sur ce 404. On réécrit l'URL en
+      // requête (?/chemin) et on redirige vers la racine, où spa-redirect.js
+      // (chargé dans index.html) restaure la vraie URL avant que React Router
+      // ne s'initialise. Déployé à la racine du domaine -> 0 segment à garder.
+      var pathSegmentsToKeep = 0;
+      var l = window.location;
+      l.replace(
+        l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
+        l.pathname.split("/").slice(0, 1 + pathSegmentsToKeep).join("/") + "/?/" +
+        l.pathname.slice(1).split("/").slice(pathSegmentsToKeep).join("/").replace(/&/g, "~and~") +
+        (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
