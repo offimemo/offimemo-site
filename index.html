@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <!-- Restaure la vraie URL après un aller-retour par public/404.html (GitHub
-         Pages n'a pas de réécriture serveur pour une SPA React Router) — doit
-         s'exécuter avant tout le reste, en particulier avant src/main.jsx. -->
+    
     <script src="/spa-redirect.js"></script>
+    <meta name="description" content="A chaque médicament scanné, OffiMemo rappelle au comptoir la posologie, le conseil clé et les produits associés. Outil d'information et de formation destiné aux pharmacien." />
+    <meta name="keywords" content="OffiMemo, pharmacie, médicament, posologie, conseil, formation" />
+    <meta property="og:site_name" content="OffiMemo" />
+    <meta name="author" content="OffiMemo" />
+    <meta property="og:description" content="A chaque médicament scanné, OffiMemo rappelle au comptoir la posologie, le conseil clé et les produits associés. Outil d'information et de formation destiné aux pharmacien." />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <!-- GitHub Pages ne permet pas de configurer les en-têtes HTTP (pas de vrai
-         X-Frame-Options/HSTS possible) : cette CSP via <meta> est le seul filet
-         disponible. script-src 'self' bloque l'exécution de tout <script> injecté
-         (le vecteur XSS classique) ; connect-src limite les fetch/XHR au seul vrai
-         backend, ce qui empêche l'exfiltration de données même en cas de XSS. -->
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.offimemo.fr http://localhost:3000 https://api.github.com; base-uri 'self'; form-action 'self'; object-src 'none'"
@@ -40,7 +38,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@700&family=Outfit:wght@400&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/assets/index-_k6kiSGK.js"></script>
+    <script type="module" crossorigin src="/assets/index-BoVVbVvv.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DNP8AatA.css">
   </head>
   <body>
