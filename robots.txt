@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /portail/
+Disallow: /admin/
+
+Sitemap: https://offimemo.fr/sitemap.xml
